@@ -23,4 +23,5 @@ However, if we introduce the thresholding (ReLU) between the 2 layers, the same 
 ## References
 
 [How a Neural Network approximates any given function](https://www.kaggle.com/code/jhoward/how-does-a-neural-net-really-work#How-a-neural-network-approximates-any-given-function)
+[NumPy Basics](https://wesmckinney.com/book/numpy-basics.html)
 
