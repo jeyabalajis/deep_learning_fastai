@@ -7,6 +7,9 @@ The way a neural network approximates a function actually turns out to be very s
 
 - Matrix multiplication, which is just multiplying things together and then adding them up
 - The function  𝑚𝑎𝑥(𝑥,0), which simply replaces all negative numbers with zero.
+- Compute error through a loss function (example, mae)
+- Adjust weights through Gradient Descent (Derivative) that traverses towards minimizing loss
+- Repeat from the beginning, stop when loss is minimized.
  
 > we've created a nifty little example showing that we can drawing squiggly lines that go through some points. So what?
 > Well... the truth is that actually drawing squiggly lines (or planes, or high-dimensional hyperplanes...) through some points is literally *all that deep learning does*!
