@@ -60,6 +60,29 @@ However, if we introduce the thresholding (ReLU) between the 2 layers, the same 
 
 > The "small number" we multiply is the learning rate, the most important hyper-parameter to set when training a neural network.
 > We need to _decrease our learning rate as we train_. This is done using a learning rate schedule and can be automated in most deep learning frameworks, such as fastai and PyTorch.
+ 
+### Limitations
+
+- A model cannot be created without data.
+- A model can only learn to operate on the patterns seen in the input data used to train it.
+- This learning approach only creates predictions, not recommended actions.
+- It's not enough to just have examples of input data; we need labels for that data too (e.g., pictures of dogs and cats aren't enough to train a model; we need a label for each one, saying which ones are dogs, and which are cats).
+
+> For instance, a radiology practice will almost certainly have an archive of medical scans (since they need to be able to check how their patients are progressing over time), but those scans may not have structured labels containing a list of diagnoses or interventions (since radiologists generally create free-text natural language reports, not structured data).
+
+> Positive feedback loop: where the more the model is used, the more biased the data becomes, making the model even more biased, and so forth.
+
+### Metrics vs. Loss
+
+The concept of a metric may remind you of loss, but there is an important distinction. The entire purpose of loss is to define a "measure of performance" that the training system can use to _update weights automatically_. In other words, a good choice for loss is a choice that is easy for stochastic gradient descent to use. But a metric is defined for human consumption, so _a good metric is one that is easy for you to understand_, and that hews as closely as possible to what you want the model to do. At times, you might decide that the loss function is a suitable metric, but that is not necessarily the case.
+
+### Pre-trained model and Head
+
+When using a pre-trained model, the learner will remove the last layer, since that is always specifically customized to the original training task (i.e. ImageNet dataset classification), and replace it with one or more new layers with randomized weights, of an appropriate size for the dataset you are working with. This last part of the model is known as the **_head_**.
+
+> Using a pre-trained model for a task different from what it was originally trained for is known as transfer learning. Unfortunately, because transfer learning is so under-studied, few domains have pre-trained models available. For instance, there are currently few pre-trained models available in medicine, making transfer learning challenging to use in that domain. In addition, it is not yet well understood how to use transfer learning for tasks such as time series analysis.
+
+> Jargon: Fine-tuning: A transfer learning technique where the parameters of a pre-trained model are updated by training for additional epochs using a different task to that used for pretraining.
 
 ## References
 
